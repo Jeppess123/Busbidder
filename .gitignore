@@ -1,0 +1,24 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Virtual environment
+.venv/
+venv/
+
+# Generated output (copies used in the report live in examples/)
+output/
+
+# Test cache
+.pytest_cache/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+
+# Secrets
+.env
