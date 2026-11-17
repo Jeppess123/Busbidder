@@ -6,7 +6,7 @@ The program finds bus offers from Madrid for a traveller. It removes offers that
 
 ## Requirements
 
-- Python 3.10 or newer (tested on 3.13)
+- Python 3.10 or newer (tested on 3.12 on Windows and 3.13 on Linux)
 - Only the standard library is used
 - pytest for the tests
 
@@ -23,6 +23,8 @@ On Windows, use `python` instead of `python3`.
 ## How to run
 
 Run all commands from the project root.
+
+The entry point is `src/busbidder/__main__.py`, which is run with `python3 -m busbidder`.
 
 ```bash
 python3 -m busbidder                                   # interactive menu
