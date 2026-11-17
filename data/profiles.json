@@ -1,0 +1,87 @@
+{
+  "journey": {
+    "destination": "MAL",
+    "date_from": "2026-07-12",
+    "date_to": "2026-07-14"
+  },
+  "profiles": {
+    "spec_example": {
+      "label": "Specification example traveller",
+      "constraints": {
+        "max_budget": 50,
+        "max_transfers": 1,
+        "require_changeable": true
+      },
+      "preferred_departure": "morning",
+      "weights": {
+        "price": 0.4,
+        "duration": 0.25,
+        "departure_time": 0.15,
+        "flexibility": 0.2
+      }
+    },
+    "budget": {
+      "label": "Budget traveller",
+      "constraints": {
+        "max_budget": 38,
+        "max_transfers": 1
+      },
+      "preferred_departure": "any",
+      "weights": {
+        "price": 0.55,
+        "duration": 0.15,
+        "departure_time": 0.1,
+        "flexibility": 0.05,
+        "transfers": 0.15
+      }
+    },
+    "business": {
+      "label": "Business traveller",
+      "constraints": {
+        "max_budget": 85,
+        "max_transfers": 0,
+        "require_changeable": true,
+        "max_duration_min": 430
+      },
+      "preferred_departure": "07:30-10:30",
+      "weights": {
+        "price": 0.1,
+        "duration": 0.3,
+        "departure_time": 0.3,
+        "flexibility": 0.2,
+        "rating": 0.1
+      }
+    },
+    "flexible_tourist": {
+      "label": "Flexible tourist",
+      "constraints": {
+        "max_budget": 65,
+        "max_transfers": 1,
+        "min_luggage_kg": 20
+      },
+      "preferred_departure": "12:00-17:00",
+      "weights": {
+        "price": 0.25,
+        "duration": 0.1,
+        "departure_time": 0.15,
+        "flexibility": 0.35,
+        "rating": 0.15
+      }
+    },
+    "eco": {
+      "label": "Eco traveller",
+      "constraints": {
+        "max_budget": 65,
+        "max_transfers": 1
+      },
+      "preferred_departure": "any",
+      "weights": {
+        "price": 0.25,
+        "duration": 0.1,
+        "departure_time": 0.05,
+        "flexibility": 0.15,
+        "emissions": 0.45
+      }
+    }
+  }
+}
