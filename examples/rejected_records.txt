@@ -1,0 +1,17 @@
+file	row	field	reason
+offers_invalid.csv	3	duration_min	row is too short: 5 of 15 values
+offers_invalid.csv	4	departure	'2026-02-31 07:30' is not a real calendar date or time
+offers_invalid.csv	5	rating	rating must be at most 5.0, got 6.2
+offers_invalid.csv	7	destination_id	unknown destination 'LIS'
+offers_invalid.csv	8	price_eur	price must be at least 0, got -35.1
+offers_invalid.csv	9	arrival	arrival 2026-07-17 10:40 is not after departure
+offers_invalid.csv	10	changeable	'unsure' is not yes or no
+offers_invalid.csv	11	price_eur	required value is missing
+offers_invalid.csv	12	available_seats	available_seats must be at least 0, got -2
+offers_invalid.csv	14	offer_id	'VRD/SLM/20260718' does not follow the format CMP-DST-YYYYMMDD-NN
+offers_invalid.csv	15	transfers	'one' is not a whole number
+offers_invalid.csv	17	company_id	unknown company 'BUS'
+offers_invalid.csv	18	offer_id	offer_id NOC-TOL-20260719-01 does not match company VRD and destination TOL
+offers_invalid.csv	19	offer_id	duplicate offer_id VRD-GRX-20260718-01
+offers_invalid.csv	20	transfers	transfers must be at most 3, got 4
+offers_invalid.csv	21	change_fee_eur	change fee given for a non-changeable fare

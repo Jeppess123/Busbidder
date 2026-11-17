@@ -1,0 +1,44 @@
+2026-11-16 13:14:55,345 INFO     busbidder.loader: start load_companies
+2026-11-16 13:14:55,345 INFO     busbidder.loader: done  load_companies in 0.1 ms
+2026-11-16 13:14:55,345 INFO     busbidder.loader: start load_destinations
+2026-11-16 13:14:55,345 INFO     busbidder.loader: done  load_destinations in 0.1 ms
+2026-11-16 13:14:55,345 INFO     busbidder.loader: start load_offers
+2026-11-16 13:14:55,351 INFO     busbidder.loader: set aside offers.csv row 31: SOL-CAD-20260712-01 is sold out (0 seats)
+2026-11-16 13:14:55,352 INFO     busbidder.loader: set aside offers.csv row 79: SOL-COR-20260715-01 is sold out (0 seats)
+2026-11-16 13:14:55,353 INFO     busbidder.loader: set aside offers.csv row 109: SOL-GRX-20260712-01 is sold out (0 seats)
+2026-11-16 13:14:55,354 INFO     busbidder.loader: set aside offers.csv row 148: SOL-SSB-20260713-02 is sold out (0 seats)
+2026-11-16 13:14:55,358 INFO     busbidder.loader: set aside offers.csv row 294: CAM-BCN-20260710-01 is sold out (0 seats)
+2026-11-16 13:14:55,359 INFO     busbidder.loader: set aside offers.csv row 304: CAM-BCN-20260715-01 is sold out (0 seats)
+2026-11-16 13:14:55,361 INFO     busbidder.loader: set aside offers.csv row 352: CAM-ALC-20260715-01 is sold out (0 seats)
+2026-11-16 13:14:55,361 INFO     busbidder.loader: set aside offers.csv row 360: CST-VLC-20260713-01 is sold out (0 seats)
+2026-11-16 13:14:55,363 INFO     busbidder.loader: set aside offers.csv row 409: CST-MAL-20260715-02 is sold out (0 seats)
+2026-11-16 13:14:55,363 INFO     busbidder.loader: set aside offers.csv row 410: CST-MAL-20260716-01 is sold out (0 seats)
+2026-11-16 13:14:55,363 INFO     busbidder.loader: set aside offers.csv row 415: CST-BIO-20260713-01 is sold out (0 seats)
+2026-11-16 13:14:55,364 INFO     busbidder.loader: set aside offers.csv row 422: CST-BIO-20260716-02 is sold out (0 seats)
+2026-11-16 13:14:55,364 INFO     busbidder.loader: set aside offers.csv row 426: CST-COR-20260712-01 is sold out (0 seats)
+2026-11-16 13:14:55,365 INFO     busbidder.loader: set aside offers.csv row 475: CST-BCN-20260711-02 is sold out (0 seats)
+2026-11-16 13:14:55,366 INFO     busbidder.loader: set aside offers.csv row 481: CST-BCN-20260715-01 is sold out (0 seats)
+2026-11-16 13:14:55,366 INFO     busbidder.loader: set aside offers.csv row 498: CST-SSB-20260712-01 is sold out (0 seats)
+2026-11-16 13:14:55,367 INFO     busbidder.loader: set aside offers.csv row 518: CST-SVQ-20260716-01 is sold out (0 seats)
+2026-11-16 13:14:55,368 INFO     busbidder.loader: set aside offers.csv row 577: VRD-ZAZ-20260716-02 is sold out (0 seats)
+2026-11-16 13:14:55,368 INFO     busbidder.loader: set aside offers.csv row 587: VRD-MAL-20260716-01 is sold out (0 seats)
+2026-11-16 13:14:55,370 INFO     busbidder.loader: set aside offers.csv row 629: VRD-TOL-20260712-02 is sold out (0 seats)
+2026-11-16 13:14:55,370 INFO     busbidder.loader: set aside offers.csv row 632: VRD-TOL-20260714-01 is sold out (0 seats)
+2026-11-16 13:14:55,370 INFO     busbidder.loader: set aside offers.csv row 643: VRD-GRX-20260713-01 is sold out (0 seats)
+2026-11-16 13:14:55,372 INFO     busbidder.loader: set aside offers.csv row 703: VRD-ALC-20260713-01 is sold out (0 seats)
+2026-11-16 13:14:55,372 INFO     busbidder.loader: set aside offers.csv row 732: NOC-CAD-20260710-02 is sold out (0 seats)
+2026-11-16 13:14:55,374 INFO     busbidder.loader: set aside offers.csv row 781: NOC-COR-20260712-01 is sold out (0 seats)
+2026-11-16 13:14:55,375 INFO     busbidder.loader: set aside offers.csv row 838: NOC-BCN-20260715-02 is sold out (0 seats)
+2026-11-16 13:14:55,376 INFO     busbidder.loader: set aside offers.csv row 841: NOC-MUR-20260711-01 is sold out (0 seats)
+2026-11-16 13:14:55,377 INFO     busbidder.loader: set aside offers.csv row 880: NOC-ALC-20260714-01 is sold out (0 seats)
+2026-11-16 13:14:55,377 INFO     busbidder.loader: done  load_offers in 31.5 ms
+2026-11-16 13:14:55,377 INFO     busbidder.loader: marketplace loaded: 5 companies, 15 destinations, 882 offers
+2026-11-16 13:14:55,378 DEBUG    busbidder.constraints: start filter_offers
+2026-11-16 13:14:55,378 INFO     busbidder.constraints: filter: 24 candidate offers, 6 accepted, 18 removed
+2026-11-16 13:14:55,378 DEBUG    busbidder.constraints: done  filter_offers in 0.3 ms
+2026-11-16 13:14:55,378 DEBUG    busbidder.ranking: start Ranker.rank
+2026-11-16 13:14:55,378 INFO     busbidder.ranking: ranked 6 offers for spec_example; top: SOL-MAL-20260714-01
+2026-11-16 13:14:55,378 DEBUG    busbidder.ranking: done  Ranker.rank in 0.2 ms
+2026-11-16 13:14:55,378 INFO     busbidder.booking: start BookingManager.book
+2026-11-16 13:14:55,379 INFO     busbidder.booking: booked BB-2026-17SWP5: SOL-MAL-20260712-01 x1 for Jeppe Strømberg
+2026-11-16 13:14:55,379 INFO     busbidder.booking: done  BookingManager.book in 0.2 ms

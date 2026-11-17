@@ -1,0 +1,19 @@
+[
+  {
+    "reference": "BB-2026-17SWP5",
+    "offer_id": "SOL-MAL-20260712-01",
+    "traveller": "Jeppe Stromberg",
+    "seats": 1,
+    "total_price": 37.02,
+    "fare": {
+      "changeable": true,
+      "refundable": false,
+      "change_fee": 9.0
+    },
+    "departure": "2026-07-12 08:30",
+    "created_at": "2026-11-16T13:14:55",
+    "status": "CONFIRMED",
+    "payment_status": "SIMULATED_PAID",
+    "refund_amount": 0.0
+  }
+]
