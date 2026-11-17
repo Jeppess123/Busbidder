@@ -1,0 +1,16 @@
+destination_id,name,distance_km,coastal
+VLC,Valencia,360,yes
+SLM,Salamanca,210,no
+CAD,Cadiz,655,yes
+ZAZ,Zaragoza,320,no
+MAL,Malaga,530,yes
+BIO,Bilbao,405,yes
+COR,Cordoba,395,no
+SCQ,Santiago de Compostela,610,no
+TOL,Toledo,72,no
+GRX,Granada,425,no
+BCN,Barcelona,615,yes
+MUR,Murcia,395,no
+SSB,San Sebastian,455,yes
+SVQ,Seville,535,no
+ALC,Alicante,420,yes
