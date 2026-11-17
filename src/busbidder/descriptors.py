@@ -12,6 +12,10 @@ class RangeValidated:
         self.types = types
         self.allow_none = allow_none
 
+
+    def __repr__(self):
+        return f"RangeValidated(min={self.min_value}, max={self.max_value})"
+
     def __set_name__(self, owner, name):
         # called once when the class is created
         self.public_name = name
