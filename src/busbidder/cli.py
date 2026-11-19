@@ -13,7 +13,7 @@ from .criteria import CRITERIA, REQUIRED_CRITERIA
 from .exceptions import BookingError, BusBidderError, ConfigurationError
 from .loader import load_journey, load_marketplace, load_profiles
 from .logging_utils import configure_logging
-from .models import DepartureWindow, TravelRequest
+from .models import DepartureWindow, Offer, TravelRequest
 from .ranking import Ranker, dominance_warnings
 from .reporting import (comparison_table, filter_summary, ranking_table, removed_details,
                         write_comparison_csv)
@@ -200,13 +200,15 @@ def yes_no(text):
     raise ValueError("answer y or n")
 
 
-def optional_number(convert):
+def optional_number(convert, max_value=None):
     def parse(text):
         if text.lower() in {"", "none", "-"}:
             return None
         value = convert(text)
         if value < 0:
             raise ValueError("value cannot be negative")
+        if max_value is not None and value > max_value:
+            raise ValueError(f"value cannot be more than {max_value}")
         return value
     return parse
 
@@ -214,17 +216,21 @@ def optional_number(convert):
 def prompt_weights(current):
     """Let the traveller set the importance of each criterion in percent."""
     from .ranking import validate_weights
-    print("Set the importance of each criterion in percent (the total must be 100). Type q to cancel.")
+    print("Set the importance of each criterion in percent (0-100, the total must be 100). Type q to cancel.")
     print(f"Required: {', '.join(REQUIRED_CRITERIA)}. Others may be 0.")
     while True:
         weights = {}
+        remaining = 100.0
         for name in CRITERIA:
             default = round(current.get(name, 0) * 100)
-            value = ask(f"  {CRITERIA[name].label}", optional_number(float), default)
+            value = ask(f"  {CRITERIA[name].label} (0-100, {remaining:g} left)",
+                        optional_number(float, 100), default)
             if value:
                 weights[name] = value
+                remaining -= value
             elif name in REQUIRED_CRITERIA:
                 weights[name] = 0.0
+        print(f"  Total: {100 - remaining:g}")
         try:
             return validate_weights(weights)
         except ConfigurationError as error:
@@ -234,6 +240,13 @@ def prompt_weights(current):
 def prompt_custom_request(session, base):
     destinations = session.marketplace.destinations
     print("Destinations: " + ", ".join(f"{code} {d.name}" for code, d in destinations.items()))
+    offers = session.marketplace.all_offers()
+    dates = ""
+    if offers:
+        dates = f", {min(o.travel_date for o in offers)} to {max(o.travel_date for o in offers)}"
+    max_seats = Offer.available_seats.max_value
+    max_price = Offer.price.max_value
+    max_transfers = Offer.transfers.max_value
 
     def destination(text):
         code = text.upper()
@@ -247,11 +260,13 @@ def prompt_custom_request(session, base):
                 name="custom",
                 label="Custom traveller",
                 destination=ask("Destination code", destination, base.destination),
-                date_from=ask("Travel from (YYYY-MM-DD)", parse_date, base.date_from),
-                date_to=ask("Travel to (YYYY-MM-DD)", parse_date, base.date_to),
-                seats=ask("Seats", int, base.seats),
-                max_budget=ask("Maximum price in EUR (blank = none)", optional_number(float), base.max_budget or ""),
-                max_transfers=ask("Maximum transfers (blank = none)", optional_number(int),
+                date_from=ask(f"Travel from (YYYY-MM-DD{dates})", parse_date, base.date_from),
+                date_to=ask(f"Travel to (YYYY-MM-DD{dates})", parse_date, base.date_to),
+                seats=ask(f"Seats (1-{max_seats})", optional_number(int, max_seats), base.seats),
+                max_budget=ask(f"Maximum price in EUR (1-{max_price}, blank = none)",
+                               optional_number(float, max_price), base.max_budget or ""),
+                max_transfers=ask(f"Maximum transfers (0-{max_transfers}, blank = none)",
+                                  optional_number(int, max_transfers),
                                   "" if base.max_transfers is None else base.max_transfers),
                 require_changeable=ask("Changeable ticket required? (y/n)", yes_no,
                                        "y" if base.require_changeable else "n"),

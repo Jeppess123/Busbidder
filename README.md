@@ -20,6 +20,17 @@ python3 -m pip install -e ".[test]"
 
 On Windows, use `python` instead of `python3`.
 
+### Without a virtual environment
+
+The program only uses the standard library, so it can also run without installing it. Point Python to the `src` folder instead:
+
+```bash
+export PYTHONPATH=src            # Windows PowerShell: $env:PYTHONPATH="src"
+python3 -m busbidder rank --profile spec_example
+```
+
+The tests only need pytest (`python3 -m pip install pytest`). They find the code in `src` by themselves, so `python3 -m pytest` works without setting `PYTHONPATH`.
+
 ## How to run
 
 Run all commands from the project root.

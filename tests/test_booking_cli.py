@@ -7,7 +7,7 @@ from datetime import datetime
 import pytest
 
 from busbidder.booking import BookingManager
-from busbidder.cli import main
+from busbidder.cli import main, optional_number
 from busbidder.exceptions import (BookingError, DataFileError, SeatsUnavailableError,
                                   UnknownBookingError, UnknownOfferError)
 from busbidder.models import Marketplace
@@ -139,3 +139,11 @@ def test_cli_q_cancels_weight_prompt(data_dir, tmp_path, monkeypatch, capsys):
     monkeypatch.setattr("builtins.input", lambda prompt="": next(answers))
     assert run_cli(data_dir, tmp_path, "interactive") == 0
     assert "Cancelled, nothing was changed." in capsys.readouterr().out
+
+
+def test_optional_number_rejects_value_above_max():
+    parse = optional_number(float, 100)
+    assert parse("100") == 100
+    assert parse("") is None
+    with pytest.raises(ValueError):
+        parse("101")
