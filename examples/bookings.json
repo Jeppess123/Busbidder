@@ -2,7 +2,7 @@
   {
     "reference": "BB-2026-17SWP5",
     "offer_id": "SOL-MAL-20260712-01",
-    "traveller": "Jeppe Stromberg",
+    "traveller": "Test Traveller",
     "seats": 1,
     "total_price": 37.02,
     "fare": {
